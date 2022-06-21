@@ -1,4 +1,4 @@
-# Algorithmen-und-Komplexit-t
+# Algorithmen-und-Komplexitaet
 Zusammenfassung Algorithmen und Komplexität Semester 2 
 
 Regeln und Design: @Flo<br>
