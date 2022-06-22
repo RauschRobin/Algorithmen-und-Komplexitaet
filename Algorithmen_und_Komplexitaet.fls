@@ -1064,6 +1064,23 @@ INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.toc
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.toc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.toc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
@@ -1076,6 +1093,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Bilder/dhbw.png
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Bilder/dhbw.png
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Bilder/dhbw.png
@@ -1084,6 +1102,8 @@ INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8t.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.aux
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.out
 INPUT /Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.out
