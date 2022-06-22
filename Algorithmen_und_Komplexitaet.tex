@@ -53,6 +53,63 @@ Der Begriff Komplexität beschreibt...
 \subsection{Divide \& Conquer}
 
 \section{Einfache Sortierverfahren}
+\subsection*{Selectionsort}
+\begin{minipage}[t]{0.7\textwidth}
+	\begin{enumerate}
+		\item Finde kleinstes Element in Folge($a_0, ...a_{k-1}$)
+		\item Vertausche $a_{min}$ mit $a_0$
+		\item finde kleinstes Element in Folge($a_1, ...a_{k-1}$)
+		\item Vertausche $a_{min}$ mit $a_1$
+		\item ...
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}[t]{0.3\textwidth}
+	Beispiel:
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\foreach \y in {0,...,4}
+				{\draw[black,very thick] (-2.5, 0.5 - \y * 2) rectangle (2.5,-0.5 - \y * 2);
+				\draw[black,very thick] (-1.5, 0.5 - \y * 2) -- (-1.5,-0.5 - \y * 2);
+				\draw[black,very thick] (-0.5, 0.5 - \y * 2) -- (-0.5,-0.5 - \y * 2);
+				\draw[black,very thick] (0.5, 0.5 - \y * 2) -- (0.5,-0.5 - \y * 2);
+				\draw[black,very thick] (1.5, 0.5 - \y * 2) -- (1.5,-0.5 - \y * 2);}
+			\node at (-2,0){5};
+			\node at (-1,0){8};
+			\node at (0,0){3};
+			\node at (1,0){9};
+			\node at (2,0){1};
+
+			\node at (-2,-2){1};
+			\node at (-1,-2){8};
+			\node at (0,-2){3};
+			\node at (1,-2){9};
+			\node at (2,-2){5};
+			
+			\node at (-2,-4){1};
+			\node at (-1,-4){3};
+			\node at (0,-4){8};
+			\node at (1,-4){9};
+			\node at (2,-4){5};
+			
+			\node at (-2,-6){1};
+			\node at (-1,-6){3};
+			\node at (0,-6){5};
+			\node at (1,-6){9};
+			\node at (2,-6){8};
+			
+			\node at (-2,-8){1};
+			\node at (-1,-8){3};
+			\node at (0,-8){5};
+			\node at (1,-8){8};
+			\node at (2,-8){9};
+
+			\draw[red,very thick, <->] (-2,0.5) to[out=60, in=120] (2,0.5);
+			\draw[red,very thick, <->] (-1,-1.5) to[out=60, in=120] (0,-1.5);
+			\draw[red,very thick, <->] (0,-3.5) to[out=60, in=120] (2,-3.5);
+			\draw[red,very thick, <->] (1,-5.5) to[out=60, in=120] (2,-5.5);
+			\end{tikzpicture}
+		\end{center}
+	\end{minipage}
 
 \section{Divide \& Conquer Sortierverfahren}
 
