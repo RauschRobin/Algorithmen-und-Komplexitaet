@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.7)  22 JUN 2022 10:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.7)  22 JUN 2022 12:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -766,7 +766,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Bilder/dhbw.png, id=76, 1284.8pt x 537.00626pt>
 File: Bilder/dhbw.png Graphic file (type png)
 <use Bilder/dhbw.png>
-Package pdftex.def Info: Bilder/dhbw.png  used on input line 67.
+Package pdftex.def Info: Bilder/dhbw.png  used on input line 68.
 (pdftex.def)             Requested size: 64.24376pt x 26.85188pt.
 
 
@@ -789,7 +789,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,16n,89p,908b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on "/Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.pdf" (2 pages, 85235 bytes).
+Output written on "/Users/robinrausch/Documents/Dokumente - MacBook Pro von Robin/Semester 2/Algorithmen_und_Komplexität/Zusammenfassung_Algorithmen/Algorithmen-und-Komplexitaet/Algorithmen_und_Komplexitaet.pdf" (2 pages, 85321 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream
