@@ -41,19 +41,45 @@
 \tableofcontents
 \newpage
 \section{Komplexitaet}
-Der Begriff Komplexität beschreibt...
-\subsection{O-Notation}
+Der Begriff Komplexität beschreibt die Frage:
+\begin{quote}
+	Wie teuer ist ein Algorithmus?
+\end{quote}
+Genauergesagt wird hierfür ermittelt, wie viele elementare Schritte eine Algorithmus im Durchschnitt und schlimmstenfalls braucht. Diese beiden Werte spiegeln die Komplexität wieder.
+\subsection{$\mathcal{O}$-Notation}
+Die $\mathcal{O}$-Notation ist eine obere Grenze einer Funktion. $\mathcal{O}(f)$ ist die Menge aller Funktionen, die langfristig nicht wesentlich schneller wachsen als $f$.
+\newline
+Einige Beispiele sind zum Beispiel:\newline
+\begin{itemize}
+	\item $n^2 \in \mathcal{O}(n^3)$
+	\item $3n^3 + 2n^2 + 17 \in \mathcal{O}(n^3)$
+	\item $n \sqrt{n} \in \mathcal{O}(n^2)$
+\end{itemize}
+\textbf{Rechenregeln für $\mathcal{O}$-Notation:}
+\begin{center}
+	\begin{tabularx}{\textwidth}{r c r c l}
+		Für jede Funktion $f$ & & $f$ & $\in \mathcal{O}(f)$ & \\
+		$g \in \mathcal{O}(f)$ & $\Rightarrow $ & $c \cdot g$ & $\in \mathcal{O}(f)$ & Konstanter Faktor\\
+		$g \in \mathcal{O}(f) \wedge h \in \mathcal{O}(f)$ & $\Rightarrow $ & $g + h$ & $\in \mathcal{O}(f)$ & Summe\\
+		$g \in \mathcal{O}(f) \wedge h \in \mathcal{O}(g)$ & $\Rightarrow $ & $h$ & $\in \mathcal{O}(f)$ & Transivität\\
+		$\lim_{n \to \infty} \frac{g(n)}{f(n)} \in \mathbb{R} $ & $\Rightarrow $ & $g$ & $\in \mathcal{O}(f)$ & Grenzwert\\
+	\end{tabularx}
+\end{center}
 
 \subsubsection{Landau-Symbole}
 \begin{tabularx}{\textwidth}{|l|X|c|}
 	\hline
-	$g  \epsilon  \Omega (f)$ & $g$ wächst mindestens so schnell wie $f$ & $\lim_{x \to \infty} \frac{f(x)}{g(x)} = c \epsilon \mathbb{R}$ \\
+	$g  \in  \Omega (f)$ & $g$ wächst mindestens so schnell wie $f$ & $\lim_{x \to \infty} \frac{f(x)}{g(x)} = c \in \mathbb{R}$ \\
 	\hline
-	$g  \epsilon  \Theta (f)$ & $g$ wächst genau so schnell wie $f$ & $\lim_{x \to \infty} \frac{g(x)}{f(x)} = c \epsilon \mathbb{R}^{>0}$ \\
+	$g  \in  \Theta (f)$ & $g$ wächst genau so schnell wie $f$ & $\lim_{x \to \infty} \frac{g(x)}{f(x)} = c \in \mathbb{R}^{>0}$ \\
 	\hline
 	$g \sim f$ & $g$ wächst genau so schnell wie $f$ & $\lim_{x \to \infty} \frac{g(x)}{f(x)} = 1$ \\
 	\hline
 \end{tabularx}
+\begin{center}
+	\includegraphics[scale=0.6]{Bilder/landau.PNG}
+\end{center}
+Zur $\Theta $-Notation gibt es auch ein eigenes \textit{\hyperref[sec:MasterLandau]{Master-Theorem}}.
 
 \subsection{Logarithmen}
 
@@ -149,5 +175,8 @@ Stabil\newline
 \section{Hashing und Hashtabellen}
 
 \section{Master-Theorem}
+
+\section{Master-Theorem nach Landau}
+\label{sec:MasterLandau}
 
 \end{document}
