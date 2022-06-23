@@ -82,6 +82,19 @@ Einige Beispiele sind zum Beispiel:\newline
 Zur $\Theta $-Notation gibt es auch ein eigenes \textit{\hyperref[sec:MasterLandau]{Master-Theorem}}.
 
 \subsection{Logarithmen}
+Der Logarithmus beschreibt die Umkehrfunktion zur Potenzierung:
+\begin{center}
+	$\log_a a^b = b$
+\end{center}
+Wir werden meist den Logarithmus zur Basis 2 brauchen.\newline
+Rechenregeln mit dem Logarithmus:
+\begin{center}
+	$log_ax = \frac{\log_bx}{\log_ba}$\\
+	\vspace*{.6cm}
+	$\log_ax = \frac{1}{\log_ba}\log_bx = c\log_bx$\\
+	\vspace*{.6cm}
+	$\mathcal{O}(\log_ax) = \mathcal{O}(c\log_bx) = \mathcal{O}(\log_bx)$ $\Rightarrow $ Die Basis ist für $\mathcal{O}$ irrelevant!
+\end{center}
 
 \subsection{Dynamisches Programmieren}
 
@@ -91,8 +104,13 @@ Zur $\Theta $-Notation gibt es auch ein eigenes \textit{\hyperref[sec:MasterLand
 
 \section{Einfache Sortierverfahren}
 \subsection*{Selectionsort}
-In-place\newline
-Stabil\newline
+\begin{tabularx}{\textwidth}{l l}
+	Speicher: &In-place\\
+	Stabilität: &Stabil\\
+	Komplexität: &$\mathcal{O}(n^2)$\\
+\end{tabularx}
+\vspace{.8cm}
+\newline
 \begin{minipage}[c]{0.7\textwidth}
 	\begin{enumerate}
 		\item Finde kleinstes Element in Folge($a_0, ...a_{k-1}$)
@@ -148,9 +166,9 @@ Stabil\newline
 			\draw[red,very thick, <->] (-1,-1.5) to[out=60, in=120] (0,-1.5);
 			\draw[red,very thick, <->] (0,-3.5) to[out=60, in=120] (2,-3.5);
 			\draw[red,very thick, <->] (1,-5.5) to[out=60, in=120] (2,-5.5);
-			\end{tikzpicture}
-		\end{center}
-	\end{minipage}
+		\end{tikzpicture}
+	\end{center}
+\end{minipage}
 
 \subsection{Insertionsort}
 
@@ -162,9 +180,101 @@ Stabil\newline
 
 \section{Divide \& Conquer Sortierverfahren}
 
-\subsection{Mergesort}
-Out-of-place\newline
-Stabil\newline
+\subsection{Mergesort(Top-Down)}
+\begin{tabularx}{\textwidth}{l l}
+	Speicher: &Out-of-place\\
+	Stabilität: &Stabil\\
+	Komplexität: &$\mathcal{O}(n^2)$\\
+\end{tabularx}
+\vspace{.8cm}
+\newline
+\begin{minipage}[c]{0.7\textwidth}
+	\begin{enumerate}
+		\item Wenn |S| $\leq $ 1: gib S zurück
+		\item Teile S in zwei gleich lange Folgen L und R
+		\item Sortieren L und R(rekursiv)
+		\item Vereinige L und R zu S':
+		\begin{enumerate}
+			\item solange L oder R nicht leer sind:
+			\item m:= min($l_1,r_1$)
+			\item entferne m aus L bzw. R
+			\item hänge m an S' an
+		\end{enumerate}
+		\item gib S' zurück
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}[c]{0.3\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\draw[black,very thick](-2.5,-0.5) rectangle (2.5,0.5);
+			\draw[black, very thick](-1.5,-0.5) -- (-1.5,0.5);
+			\draw[red, very thick](-0.5,-0.5) -- (-0.5,0.5);
+			\draw[black, very thick](0.5,-0.5) -- (0.5,0.5);
+			\draw[black, very thick](1.5,-0.5) -- (1.5,0.5);
+			\node at (-2,0){5};
+			\node at (-1,0){8};
+			\node at (0,0){3};
+			\node at (1,0){9};
+			\node at (2,0){1};
+
+			\draw[black,very thick](-3,-2.5) rectangle (-1,-1.5);
+			\draw[black,very thick](0,-2.5) rectangle (3,-1.5);
+			\draw[red, very thick](-2,-2.5) -- (-2,-1.5);
+			\draw[red, very thick](2,-2.5) -- (2,-1.5);
+			\draw[black, very thick](1,-2.5) -- (1,-1.5);
+			\node at (-2.5,-2){5};
+			\node at (-1.5,-2){8};
+			\node at (0.5,-2){3};
+			\node at (1.5,-2){9};
+			\node at (2.5,-2){1};
+
+			\draw[black,very thick](-3.25,-3.5) rectangle (-2.25,-4.5);
+			\draw[black,very thick](-1.75,-3.5) rectangle (-0.75,-4.5);
+			\draw[black,very thick](0,-3.5) rectangle (1,-4.5);
+			\draw[black,very thick](1.5,-3.5) rectangle (3.5,-4.5);
+			\draw[red, very thick](2.5,-3.5) -- (2.5,-4.5);
+			\node at (-2.75,-4){5};
+			\node at (-1.25,-4){8};
+			\node at (0.5,-4){3};
+			\node at (2,-4){9};
+			\node at (3,-4){1};
+
+			\draw[black,very thick](1.25,-5.5) rectangle (2.25,-6.5);
+			\draw[black,very thick](2.75,-5.5) rectangle (3.75,-6.5);
+			\node at (1.75,-6){9};
+			\node at (3.25,-6){1};
+
+			\draw[green,very thick](1.5,-7.5) rectangle (3.5,-8.5);
+			\draw[green,very thick](2.5,-7.5) -- (2.5,-8.5);
+			\node at (2,-8){1};
+			\node at (3,-8){9};
+
+			\draw[green,very thick](-3,-9.5) rectangle (-1,-10.5);
+			\draw[green,very thick](0,-9.5) rectangle (3,-10.5);
+			\draw[green, very thick](-2,-9.5) -- (-2,-10.5);
+			\draw[green, very thick](2,-9.5) -- (2,-10.5);
+			\draw[green, very thick](1,-9.5) -- (1,-10.5);
+			\node at (-2.5,-10){5};
+			\node at (-1.5,-10){8};
+			\node at (0.5,-10){1};
+			\node at (1.5,-10){3};
+			\node at (2.5,-10){9};
+
+			\draw[green,very thick](-2.5,-11.5) rectangle (2.5,-12.5);
+			\draw[green, very thick](-1.5,-11.5) -- (-1.5,-12.5);
+			\draw[green, very thick](-0.5,-11.5) -- (-0.5,-12.5);
+			\draw[green, very thick](0.5,-11.5) -- (0.5,-12.5);
+			\draw[green, very thick](1.5,-11.5) -- (1.5,-12.5);
+			\node at (-2,-12){1};
+			\node at (-1,-12){3};
+			\node at (0,-12){5};
+			\node at (1,-12){8};
+			\node at (2,-12){9};
+
+			\draw[->,blue,very thick](5,0) -- (5,-12);
+		\end{tikzpicture}
+	\end{center}
+\end{minipage}
 
 \section{Heap Sortierverfahren}
 
