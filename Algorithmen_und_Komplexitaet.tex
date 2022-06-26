@@ -43,7 +43,7 @@
 \section{Komplexitaet}
 Der Begriff Komplexität beschreibt die Frage:
 \begin{quote}
-	Wie teuer ist ein Algorithmus?
+	Wie teuer ist ein Algorithmus? Voll Teuer!
 \end{quote}
 Genauergesagt wird hierfür ermittelt, wie viele elementare Schritte eine Algorithmus im Durchschnitt und schlimmstenfalls braucht. Diese beiden Werte spiegeln die Komplexität wieder.
 \subsection{$\mathcal{O}$-Notation}
@@ -365,10 +365,102 @@ Wen man den Insertionsort In-place verwenden will, sind In und Out gleich.
 \end{minipage}
 
 \section{Heap Sortierverfahren}
+	\begin{tabularx}{\textwidth}{l l}
+		Speicher: &Weiß nicht\\
+		Stabilität: &Instabil\\
+		Komplexität: &$\mathcal{O}(n \; log(n))$\\
+	\end{tabularx}
+	\vspace{.8cm}
+	\newline
+	\begin{minipage}[c]{0.7\textwidth}
+		\begin{enumerate}
+			\item Liste in Binärbaum übertragen
+			\item Solange Binärbaum nicht leer:
+			\begin{enumerate}
+				\item Von unten nach oben Heapeigenschaften herstellen
+				\item Von oben nach unten Heapeigenschaften kontrollieren
+				\item Wurzel mit der letzten Stelle des Heaps (unterste -> rechteste) tauschen und in neuen (sortierten) Array schreiben, weil diese nun Sortiert ist
+			\end{enumerate}
+		\end{enumerate}
+	\end{minipage}
+	\begin{minipage}[c]{0.3\textwidth}
+		\begin{center}
+			\begin{tikzpicture}[scale=0.6]
+				\draw[black,very thick](-2.5,-0.5) rectangle (2.5,0.5);
+				\draw[black, very thick](-1.5,-0.5) -- (-1.5,0.5);
+				\draw[black, very thick](-0.5,-0.5) -- (-0.5,0.5);
+				\draw[black, very thick](0.5,-0.5) -- (0.5,0.5);
+				\draw[black, very thick](1.5,-0.5) -- (1.5,0.5);
+				\node at (-2,0){5};
+				\node at (-1,0){8};
+				\node at (0,0){3};
+				\node at (1,0){9};
+				\node at (2,0){1};
+
+				\node[draw, draw=green, circle] at (0,-2){5};
+
+				\node[draw, draw=green, circle] at (1.5,-4){8};
+				\node[draw, circle] at (-1.5,-4){3};
+
+				
+				\node[draw, draw=green, circle] at (3,-6){9};
+				\node[draw, circle] at (-3,-6){1};
+
+				% new tree
+				\node[draw, circle] at (0,-8){9};
+
+				\node[draw, draw=green, circle] at (1.5,-10){5};
+				\node[draw, circle] at (-1.5,-10){3};
+
+				
+				\node[draw, draw=green, circle] at (3,-12){8};
+				\node[draw, circle] at (-3,-12){1};
+
+				% new tree
+				\node[draw, draw=red, circle] at (0,-14){9};
+
+				\node[draw, circle] at (1.5,-16){8};
+				\node[draw, circle] at (-1.5,-16){3};
+
+				
+				\node[draw, circle] at (3,-18){5};
+				\node[draw, circle] at (-3,-18){1};
+
+				% new tree
+				\node[draw, circle] at (0,-20){5};
+
+				\node[draw, circle] at (1.5,-22){8};
+				\node[draw, circle] at (-1.5,-22){3};
+
+				\node[draw, circle] at (-3,-24){1};
+
+				\draw[green,very thick](-2.5,-25.5) rectangle (2.5,-26.5);
+				\draw[green, very thick](-1.5,-25.5) -- (-1.5,-26.5);
+				\draw[green, very thick](-0.5,-25.5) -- (-0.5,-26.5);
+				\draw[green, very thick](0.5,-25.5) -- (0.5,-26.5);
+				\draw[green, very thick](1.5,-25.5) -- (1.5,-26.5);
+				\node at (-2,-26){9};
+
+
+			\end{tikzpicture}
+		\end{center}
+	\end{minipage}
 
 \section{Binäre Suchbäume}
 
 \section{AVL-Bäume}
+	Binäre Suchbäume mit maximaler Höhendifferenz von 2.\\
+	\textbf{Begriffe:}\\
+	\begin{enumerate}
+		\item Höhe/Tiefe: Anzahl der Knoten auf dem längsten Ast
+		\item Gewicht: Anzahl der Knoten
+		\item Balance: Tiefenerschied ist nicht Höher als 2
+	\end{enumerate}
+
+	\subsection{Einfügen}
+	\subsection{Löschen}
+	\subsection{Rotieren}
+	\subsection{Balancieren}
 
 \section{Hashing und Hashtabellen}
 
