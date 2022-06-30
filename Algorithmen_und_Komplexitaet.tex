@@ -280,18 +280,18 @@ Wen man den Insertionsort In-place verwenden will, sind In und Out gleich.
 		\begin{enumerate}
 			\item Pivot: Dreh- und Angelpunkt
 			\item idealerweise: Mittlere Größe
-			\item teile Folge in zwei Teilfolgen S< und S$\geqslant $
+			\item teile Folge in zwei Teilfolgen S$<$ und S$\geqslant $
 			\begin{enumerate}
 				\item $\forall_{a \in S<}: a<p$
 				\item $\forall_{a \in S\geqslant}: a \geqslant p$
 			\end{enumerate}
 		\end{enumerate}
-		\item Sortiere S< und S$\geqslant $ mittels Quicksort
+		\item Sortiere S$<$ und S$\geqslant $ mittels Quicksort
 	\end{enumerate}
 \end{minipage}
 \begin{minipage}[c]{0.4\textwidth}
 	\begin{center}
-		\includegraphics[scale=0.25]{Bilder/quicksort.jpeg}		
+		\includegraphics[scale=0.18]{Bilder/quicksort.jpeg}		
 	\end{center}
 \end{minipage}
 \vspace*{0.7cm}
@@ -348,21 +348,21 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 			\node at (1.5,-2){9};
 			\node at (2.5,-2){1};
 
-			\draw[black,very thick](-3.25,-3.5) rectangle (-2.25,-4.5);
+			\draw[black,very thick](-3.18,-3.5) rectangle (-2.18,-4.5);
 			\draw[black,very thick](-1.75,-3.5) rectangle (-0.75,-4.5);
 			\draw[black,very thick](0,-3.5) rectangle (1,-4.5);
 			\draw[black,very thick](1.5,-3.5) rectangle (3.5,-4.5);
 			\draw[red, very thick](2.5,-3.5) -- (2.5,-4.5);
 			\node at (-2.75,-4){5};
-			\node at (-1.25,-4){8};
+			\node at (-1.18,-4){8};
 			\node at (0.5,-4){3};
 			\node at (2,-4){9};
 			\node at (3,-4){1};
 
-			\draw[black,very thick](1.25,-5.5) rectangle (2.25,-6.5);
+			\draw[black,very thick](1.18,-5.5) rectangle (2.18,-6.5);
 			\draw[black,very thick](2.75,-5.5) rectangle (3.75,-6.5);
 			\node at (1.75,-6){9};
-			\node at (3.25,-6){1};
+			\node at (3.18,-6){1};
 
 			\draw[green,very thick](1.5,-7.5) rectangle (3.5,-8.5);
 			\draw[green,very thick](2.5,-7.5) -- (2.5,-8.5);
@@ -405,25 +405,17 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 	\end{tabularx}
 	\vspace{.8cm}
 	\newline
-	\begin{minipage}[c]{0.7\textwidth}
+	\begin{minipage}[c]{0.5\textwidth}
 		\begin{enumerate}
-			\item Liste in Binärbaum übertragen
-			\item Solange Binärbaum nicht leer:
+			\item Liste in Baum übertragen
+			\item Solange Baum nicht leer:
 			\begin{enumerate}
-				\item Von unten nach oben Heapeigenschaften herstellen
-				\item Von oben nach unten Heapeigenschaften kontrollieren
-				\item Wurzel mit der letzten Stelle des Heaps (unterste -> rechteste) tauschen und in neuen (sortierten) Array schreiben, weil diese nun Sortiert ist
+				\item Heapify(Größte nach oben)
+				\item Oberste Element in die Liste einfügen
 			\end{enumerate}
-			%Sein Skript sagt so:
-			%\item Transformiere A in Max-Heap (heapify)
-			%\item Vertausche Wurzel ($a_0$) mit letztem Element des Arrays (Heap endet jetzt mit vorletztem Element)
-			%\item Lasse neue Wurzel herabsinken (bubble down)
-			%\item Vertausche neue Wurzel mit vorletztem Element (Heap endet jetzt mit drittletztem Element)
-			%\item Lasse neue Wurzel herabsinken
-			%\item ...
 		\end{enumerate}
 	\end{minipage}
-	\begin{minipage}[c]{0.3\textwidth}
+	\begin{minipage}[c]{0.5\textwidth}
 		\begin{center}
 			\begin{tikzpicture}[scale=0.6]
 				\draw[black,very thick](-2.5,-0.5) rectangle (2.5,0.5);
@@ -437,51 +429,51 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 				\node at (1,0){9};
 				\node at (2,0){1};
 
-				\node[draw, draw=green, circle] at (0,-2){5};
+				\node[draw, circle] at (0,-2){9};
+				\node[draw, circle] at (1.5,-3.5){8};
+				\node[draw, circle] at (-1.5,-3.5){3};
+				\node[draw, circle] at (3,-5){5};
+				\node[draw, circle] at (-3,-5){1};
 
-				\node[draw, draw=green, circle] at (1.5,-4){8};
-				\node[draw, circle] at (-1.5,-4){3};
+				\draw[green, very thick, ->](0.75,-2) to[out=45, in=100] (4.5, -3);
 
+				\draw[green,very thick](4,-3) rectangle (9,-4);
+				\draw[green, very thick](5,-3) -- (5,-4);
+				\draw[green, very thick](6,-3) -- (6,-4);
+				\draw[green, very thick](7,-3) -- (7,-4);
+				\draw[green, very thick](8,-3) -- (8,-4);
+				\node at (4.5,-3.5){9};
+
+				\node[draw, circle] at (0,-6){5};
+				\node[draw, circle] at (1.5,-7.5){8};
+				\node[draw, circle] at (-1.5,-7.5){3};
+				\node[draw, circle] at (-3,-9){1};
 				
-				\node[draw, draw=green, circle] at (3,-6){9};
-				\node[draw, circle] at (-3,-6){1};
+				\draw[red, very thick, <->](0.75,-6) to[out=0, in=90] (1.5, -6.75);
+				\node[text=red] at (6,-9.5){Heapify};
 
-				% new tree
-				\node[draw, circle] at (0,-8){9};
+				\node[draw, circle] at (0,-10){8};
+				\node[draw, circle] at (1.5,-11.5){5};
+				\node[draw, circle] at (-1.5,-11.5){3};
+				\node[draw, circle] at (-3,-13){1};
 
-				\node[draw, draw=green, circle] at (1.5,-10){5};
-				\node[draw, circle] at (-1.5,-10){3};
+				\draw[green, very thick, ->](0.75,-10) to[out=45, in=100] (5.5, -13.5);
 
-				
-				\node[draw, draw=green, circle] at (3,-12){8};
-				\node[draw, circle] at (-3,-12){1};
+				\draw[green,very thick](4,-13.5) rectangle (9,-14.5);
+				\draw[green, very thick](5,-13.5) -- (5,-14.5);
+				\draw[green, very thick](6,-13.5) -- (6,-14.5);
+				\draw[green, very thick](7,-13.5) -- (7,-14.5);
+				\draw[green, very thick](8,-13.5) -- (8,-14.5);
+				\node at (4.5,-14){9};
+				\node at (5.5,-14){8};
 
-				% new tree
-				\node[draw, draw=red, circle] at (0,-14){9};
+				\node[draw, circle] at (0,-14){5};
+				\node[draw, circle] at (-1.5,-15.5){3};
+				\node[draw, circle] at (-3,-17){1};
 
-				\node[draw, circle] at (1.5,-16){8};
-				\node[draw, circle] at (-1.5,-16){3};
+				\node[text=red] at (6,-17.5){Heapify};
 
-				
-				\node[draw, circle] at (3,-18){5};
-				\node[draw, circle] at (-3,-18){1};
-
-				% new tree
-				\node[draw, circle] at (0,-20){5};
-
-				\node[draw, circle] at (1.5,-22){8};
-				\node[draw, circle] at (-1.5,-22){3};
-
-				\node[draw, circle] at (-3,-24){1};
-
-				\draw[green,very thick](-2.5,-25.5) rectangle (2.5,-26.5);
-				\draw[green, very thick](-1.5,-25.5) -- (-1.5,-26.5);
-				\draw[green, very thick](-0.5,-25.5) -- (-0.5,-26.5);
-				\draw[green, very thick](0.5,-25.5) -- (0.5,-26.5);
-				\draw[green, very thick](1.5,-25.5) -- (1.5,-26.5);
-				\node at (-2,-26){9};
-
-
+				\node at (1.5, -19){...};
 			\end{tikzpicture}
 		\end{center}
 	\end{minipage}
