@@ -264,9 +264,41 @@ Wen man den Insertionsort In-place verwenden will, sind In und Out gleich.
 
 \subsection{Bubblesort}
 
-\subsection{Quicksort}
-
 \section{Divide \& Conquer Sortierverfahren}
+\subsection{Quicksort}
+\begin{tabularx}{\textwidth}{l l}
+	Speicher: &In-place\\
+	Stabilität: &Instabil\\
+	Komplexität: &$\mathcal{O}(n \cdot \log n)$\\
+\end{tabularx}
+\vspace{.8cm}
+\newline
+\begin{minipage}[c]{0.6\textwidth}
+	\begin{enumerate}
+		\item Wenn $|S| \eqslantless 1$: fertig
+		\item Wähle Pivot-Element $p \in S$
+		\begin{enumerate}
+			\item Pivot: Dreh- und Angelpunkt
+			\item idealerweise: Mittlere Größe
+			\item teile Folge in zwei Teilfolgen S< und S$\geqslant $
+			\begin{enumerate}
+				\item $\forall_{a \in S<}: a<p$
+				\item $\forall_{a \in S\geqslant}: a \geqslant p$
+			\end{enumerate}
+		\end{enumerate}
+		\item Sortiere S< und S$\geqslant $ mittels Quicksort
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}[c]{0.4\textwidth}
+	\begin{center}
+		\includegraphics[scale=0.25]{Bilder/quicksort.jpeg}		
+	\end{center}
+\end{minipage}
+\vspace*{0.7cm}
+\newline
+\textbf{Warum ist Quicksort so effizient?}\newline
+Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Elemente zwischen denen einmal ein Pivot lag nie wieder miteinander verglichen. 
+
 
 \subsection{Mergesort(Top-Down)}
 \begin{tabularx}{\textwidth}{l l}
@@ -382,6 +414,13 @@ Wen man den Insertionsort In-place verwenden will, sind In und Out gleich.
 				\item Von oben nach unten Heapeigenschaften kontrollieren
 				\item Wurzel mit der letzten Stelle des Heaps (unterste -> rechteste) tauschen und in neuen (sortierten) Array schreiben, weil diese nun Sortiert ist
 			\end{enumerate}
+			%Sein Skript sagt so:
+			%\item Transformiere A in Max-Heap (heapify)
+			%\item Vertausche Wurzel ($a_0$) mit letztem Element des Arrays (Heap endet jetzt mit vorletztem Element)
+			%\item Lasse neue Wurzel herabsinken (bubble down)
+			%\item Vertausche neue Wurzel mit vorletztem Element (Heap endet jetzt mit drittletztem Element)
+			%\item Lasse neue Wurzel herabsinken
+			%\item ...
 		\end{enumerate}
 	\end{minipage}
 	\begin{minipage}[c]{0.3\textwidth}
