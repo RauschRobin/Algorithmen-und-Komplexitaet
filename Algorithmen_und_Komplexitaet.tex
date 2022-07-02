@@ -107,9 +107,6 @@ Die Dynamische Programmierung versagt, wenn...
 \vspace{.35cm}
 Ein Beispiel für die Verwendung der dynamischen Programmierung ist eine rekursive Fibonacci-Funktion.
 
-\subsection{Rekurrenzen}
-Rekursion? --> Kein Plan was ich hierzu reinschreiben soll? @flo
-
 \subsection{Divide \& Conquer}
 Der Divide \& Conquer-Ansatz teilt ein Problem in zwei gleich große Hälften und muss somit nur noch ein halb so großes Problem lösen.\newline
 Ein Algorithmus der...
@@ -119,8 +116,14 @@ Ein Algorithmus der...
 	\item die Teillösungen zu einer Gesamtlösung kombiniert
 \end{itemize}
 
-\subsubsection{Komplexität von rekursiven Algorithmen}
+\subsection{Greedy Algorithmen}
+Greedy-Algorithmen zeichnen sich dadurch aus, dass sie zum aktuellen Zustand $t$ den besten Weg einschlagen und nicht voraus ($t+1$) planen. Anders gesagt: Ein Greedy-Algorithmus entscheidet sich immer für denjenigen Schritt, der ihn dem Ziel am nachsten bringt.
 
+\subsection{Rekurrenzen}
+Rekursion? --> Kein Plan was ich hierzu reinschreiben soll? @flo
+
+\subsection{Komplexität von rekursiven Algorithmen}
+Rekursion? --> Kein Plan was ich hierzu reinschreiben soll? @flo
 
 \section{Einfache Sortierverfahren}
 \subsection{Selectionsort}
@@ -479,6 +482,146 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 	\end{minipage}
 
 \section{Binäre Suchbäume}
+\begin{minipage}[c]{0.65\textwidth}
+	Ein binärer Suchbaum ist ein Binärbaum mit folgende Eigenschaften:
+	\begin{enumerate}
+		\item Die Knoten des Baums sind mit Schlüsseln aus einer geordneten Menge \textit{K} beschriftet
+		\item Für jeden Knoten gilt:
+		\begin{enumerate}
+			\item Alle Schlüssel im linken Teilbaum von \textit{N} sind kleiner als der Schlüssel von \textit{N}
+			\item Alle Schlüssel im rechten Teilbaum von \textit{N} sind größer als der Schlüssel von \textit{N}
+		\end{enumerate}
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}[c]{0.35\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[scale=.8]
+			\draw[->] (0,7) -- (0,6.5);
+			\node[draw, circle] (A) at (0,6){8};
+			\node[draw, circle] (B) at (-1.5,4){3};
+			\node[draw, circle] (C) at (1.5,4){9};
+			\node[draw, circle] (D) at (-2.5,2){1};
+			\node[draw, circle] (E) at (-0.5,2){5};
+			\draw[->] (A) -- (B);
+			\draw[->] (A) -- (C);
+			\draw[->] (B) -- (D);
+			\draw[->] (B) -- (E);
+		\end{tikzpicture}
+	\end{center}
+\end{minipage}
+
+\subsection{Suchen}
+\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(log(n))$\\
+\end{tabularx}
+\begin{enumerate}
+	\item Gegeben: Baum \textit{B} mit Wurzel \textit{W}, Schlüssel \textit{k}
+	\item Algorithmus: Suche \textit{k} in \textit{B}
+	\begin{enumerate}
+		\item Wenn \textit{B} leer ist: Ende, \textit{k} ist nicht in \textit{B}
+		\item Wenn \textit{W.key} $>$ \textit{k}: Suche im linken Teilbaum von B
+		\item Wenn \textit{W.key} $<$ \textit{k}: Suche im rechten Teilbaum von B
+		\item Sonst: \textit{W.key} = \textit{k}; Ende, gefunden
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Einfügen}\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(log(n))$\\
+\end{tabularx}
+\begin{enumerate}
+	\item Gegeben: Baum \textit{B} mit Wurzel \textit{W}, Schlüssel \textit{k}
+	\item Gesucht: Baum \textit{B'}, der aus \textit{B} entsteht, wenn \textit{k} eingefügt wird
+	\item Idee:
+	\begin{enumerate}
+		\item Suche nach \textit{k}
+		\item Falls \textit{k} nicht in \textit{B} ist, setze es an der Stelle ein, an der es gefunden worden wäre
+	\end{enumerate}
+	\item Implementierung z.B. funktional:
+	\begin{enumerate}
+		\item Wenn \textit{B} leer ist, dann ist ein Baum mit einem Knoten mit Schlüssel \textit{k} der gesuchte Baum
+		\item Ansonsten:
+		\begin{enumerate}
+			\item Wenn \textit{W.key} $>$ \textit{k}: Ersetze den linken Teilbaum von \textit{B} durch den Baum, der entsteht, wenn man \textit{k} in ihn einfügt
+			\item Wenn \textit{W.key} $<$ \textit{k}: Ersetze den rechten Teilbaum von \textit{B} durch den Baum, der entsteht, wenn man \textit{k} in ihn einfügt
+			\item Ansonsten: \textit{k} ist schon im Baum
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Löschen}
+Beim Löschen in Binärbäumen muss man beachten, dass der zu löschende Knoten auch Nachfolger haben kann. Aus diesem Grund gibt es hierbei eine Fallunterscheidung:\newline \newline
+\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(log(n))$\\
+\end{tabularx}
+\begin{enumerate}
+	\item Problem: Entferne einen Knoten \textit{K} mit gegebenen Schlüssel \textit{k} aus dem Suchbaum
+	\begin{enumerate}
+		\item ... und erhalte die Binärbaumeigenschaft
+		\item ... und erhalte die Suchbaumeigenschaft
+	\end{enumerate}
+	\item Fallunterscheidung:
+	\begin{enumerate}
+		\item Fall 1: Knoten hat \textcolor{blue}{keinen} Nachfolger
+		\begin{enumerate}
+			\item Lösung: Schneide Knoten ab
+			\item Korrektheit: Offensichtlich
+		\end{enumerate}
+		\item Fall 2: Knoten hat \textcolor{blue}{einen} Nachfolger
+		\begin{enumerate}
+			\item Lösung: Ersetze Knoten durch seinen einzigen Nachfolger
+			\item Korrektheit: Alle Knoten in diesem Baum sind größer(bzw. kleiner) als die Knoten im Vorgänger des gelöschten Knotens
+		\end{enumerate}
+		\item Fall 3: Knoten hat \textcolor{blue}{zwei} Nachfolger
+		\begin{enumerate}
+			\item Lösung: 
+			\begin{enumerate}
+				\item Suche größten Knoten \textit{G} im linken Teilbaum
+				\item Tausche \textit{G} und \textit{K} (oder einfacher: Ihre Schlüssel/Werte)
+				\item Lösche rekursiv \textit{k} im linken Teilbaum von (nun) \textit{G}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Ausgabe}
+\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(n)$\\
+\end{tabularx}
+\begin{enumerate}
+	\item Gegeben: Baum \textit{B} mit Wurzel \textit{W}
+	\item Algorithmus: Gib alle \textit{W} in \textit{B} aus
+	\begin{enumerate}
+		\item Wenn \textit{B} leer ist: Ende
+		\item Ausgabe(\textit{W}) ist rekursiv:
+		\begin{enumerate}
+			\item Wenn \textit{W.linkes Kind} existiert: Ausgabe(\textit{W.linker Teilbaum})
+			\item Gib \textit{W} aus
+			\item Wenn \textit{W.rechtes Kind} existiert: Ausgabe(\textit{W.rechter Teilbaum})
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Balacierte und Unbalancierte Bäume}
+\begin{minipage}[c]{0.6\textwidth}
+	Binärbaume können entarten, indem man zum Beispiel eine sortierte Liste in einen Binärbaum umwandelt. In diesem Fall entsteht solch ein unbalacierter Baum:\vspace{2cm}\newline
+	Diese entarteten Binärbäume sind sehr ineffizient und sollten rebalanciert werden. Die Rebalancierung zu Balancierten Binärbäumen geschieht zum Beispiel bei AVL-Bäumen.
+\end{minipage}
+\begin{minipage}[c]{0.4\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[scale=.8]
+			\draw[->] (0.5,7) -- (0.5,6.5);
+			\node[draw, circle] (A) at (0.5,6){1};
+			\node[draw, circle] (B) at (1.5,4){3};
+			\node[draw, circle] (C) at (2.5,2){5};
+			\node[draw, circle] (D) at (3.5,0){8};
+			\node[draw, circle] (E) at (4.5,-2){9};
+			\draw[->] (A) -- (B);
+			\draw[->] (B) -- (C);
+			\draw[->] (C) -- (D);
+			\draw[->] (D) -- (E);
+		\end{tikzpicture}
+	\end{center}
+\end{minipage}
 
 \section{AVL-Bäume}
 	Binäre Suchbäume mit maximaler Höhendifferenz von 2.\\
@@ -489,10 +632,15 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 		\item Balance: Tiefenerschied ist nicht Höher als 2
 	\end{enumerate}
 
-	\subsection{Einfügen}
-	\subsection{Löschen}
-	\subsection{Rotieren}
-	\subsection{Balancieren}
+\subsection{Rotieren}
+
+\subsection{Balancieren}
+
+\subsection{Einfügen}
+
+\subsection{Suchen}
+
+\subsection{Löschen}
 
 \section{Hashing und Hashtabellen}
 
@@ -500,5 +648,11 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 
 \section{Master-Theorem nach Landau}
 \label{sec:MasterLandau}
+
+\section{Graph-Algorithmen}
+\subsection{Minimale Spannbäume \& Algorithmus von Prim}
+
+\subsection{Kürzeste Wege/Dijkstra}
+
 
 \end{document}
