@@ -122,11 +122,8 @@ Greedy-Algorithmen zeichnen sich dadurch aus, dass sie zum aktuellen Zustand $t$
 \subsection{Indirektes Sortieren}
 Bei sehr großen Datensätzen ist das Sortieren sehr teuer. Um dieses Problem zu umgehen wurde das Indirekte Sortieren erfunden, bei dem nicht die Datensätze getauscht werden, sondern die Indexierung vertauscht wird.
 
-\subsection{Rekurrenzen}
-Rekursion? --> Kein Plan was ich hierzu reinschreiben soll? @flo
-
 \subsection{Komplexität von rekursiven Algorithmen}
-Rekursion? --> Kein Plan was ich hierzu reinschreiben soll? @flo
+Rekurrenzrelationen? --> Kein Plan? @flo --> HELP
 
 \section{Einfache Sortierverfahren}
 \subsection{Selectionsort}
@@ -819,10 +816,27 @@ Die Adjazenzliste ist gegenüber der Matrix in nicht so dichten Graphen deutlich
 
 
 \section{Master-Theorem}
-
+\begin{center}
+	\includegraphics[scale=.8]{Bilder/MasterTheorem.PNG}
+\end{center}
+\textbf{Beispiele:}\newline
+\textit{Wenden Sie das Master Theorem auf folgende Rekurrenzgleichung an:} $f(n)= 4\cdot f(\frac{n}{2}) +  n$\newline
+\begin{center}
+	$a = 4; b = 2$ $\rightsquigarrow $ Fall 3: $a>b^d$; d = 1;\newline
+	$f(n) \in \mathcal{O}(n^{\log_2 4}) = \mathcal{O}(n^2)$
+\end{center}
+\vspace{.8cm}
+\textit{Wenden Sie das Master Theorem auf folgende Rekurrenzgleichung an:} $f(n)= 4\cdot f(\frac{n}{2}) +  n^2$\newline
+\begin{center}
+	$a = 4; b^d = 2^2 = 4$ $\rightsquigarrow $ Fall 2: $a=b^d$; d = 2;\newline
+	$f(n) \in \mathcal{O}(\log_2 n \cdot n^2)$
+\end{center}
 
 \section{Master-Theorem nach Landau}
 \label{sec:MasterLandau}
-
+Hierbei wird das Master Theorem zur Berechnung von $\Theta $ verwendet:\newline
+\begin{center}
+	\includegraphics[scale=.8]{Bilder/MasterTheoremLandau.PNG}
+\end{center}
 
 \end{document}
