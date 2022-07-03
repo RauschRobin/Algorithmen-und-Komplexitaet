@@ -723,6 +723,24 @@ Hierbei gibt es den Nachteil dass sich sehr schnell Cluster bilden und somit die
 Beim Re-Hashing gibt es eine zweite Hash-Funktion welche bei Kollisionen zum Einsatz kommt. Diese bestimmt die Sprungweite. Am Besten ist es, wenn die Sprungweite eine Primzahl ist und somit kein Teiler der Tabellengröße sein kann. Mit dieser Methode kann das Problem der Clusterbildung umgangen werden.
 
 \section{Graph-Algorithmen}
+Ein Graph ist entweder gerichtet oder ungerichtet. Gerichtete Graphen haben eine Richtung wobei ungerichtete Graphen beidseitig anwendbar sind(symmetrisch sind). Ebenso können Graphen gewichtet sein in dem sie beschriftet sind. Hierbei besteht eine Gewichtung wenn ein Graph mit einer Zahl versehen ist.
+
+\subsection{Adjazenzmatrix}
+Die Adjazenzmatrix kann als zweidimensionales Array betrachtet werden. Hierbei wird die Verbindung aller Punkte miteinander aufgelistet:\newline
+\newline
+\begin{minipage}[c]{0.7\textwidth}
+	\begin{center}
+		\includegraphics[scale=.8]{Bilder/Adjazenzmatrix.PNG}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{0.3\textwidth}
+	\begin{center}
+		\includegraphics[scale=.95]{Bilder/Adjazenzliste.PNG}
+	\end{center}
+\end{minipage}\vspace{.5cm}
+\textit{V} beschreibt die Punkte die miteinander verbunden sind und \textit{E} ist eine Menge aller bestehenden Graphen zwischen diesen Punkten. Rechts befindet sich die zugehörige Adjazenzliste \textit{L}.\newline
+Die Adjazenzliste ist gegenüber der Matrix in nicht so dichten Graphen deutlich platzsparender und wird vorallem bei mageren Graphen eingesetzt. Jedoch ist die Komplexität bei der Adjazenzliste höher als bei der Matrix($\mathcal{O}(N)$ statt $\mathcal{O}(1)$)
+
 \subsection{Minimale Spannbäume \& Algorithmus von Prim}
 
 
