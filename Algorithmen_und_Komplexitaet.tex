@@ -511,6 +511,7 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 \end{minipage}
 
 \subsection{Suchen}
+\label{sec:SuchenBinaer}
 \begin{tabularx}{\textwidth}{l l}
 	Komplexität: &$\mathcal{O}(log(n))$\\
 \end{tabularx}
@@ -584,6 +585,7 @@ Beim Löschen in Binärbäumen muss man beachten, dass der zu löschende Knoten 
 \end{enumerate}
 
 \subsection{Ausgabe}
+\label{sec:AusgabeBinaer}
 \begin{tabularx}{\textwidth}{l l}
 	Komplexität: &$\mathcal{O}(n)$\\
 \end{tabularx}
@@ -629,30 +631,109 @@ Beim Löschen in Binärbäumen muss man beachten, dass der zu löschende Knoten 
 	\begin{enumerate}
 		\item Höhe/Tiefe: Anzahl der Knoten auf dem längsten Ast
 		\item Gewicht: Anzahl der Knoten
-		\item Balance: Tiefenerschied ist nicht Höher als 2
+		\item Balance: Tiefenunterschied ist nicht Höher als 2
 	\end{enumerate}
 
 \subsection{Rotieren}
+Beim Rotieren gibt es zwei unterschiedliche Arten zu rotieren. Hierbei wird unterschieden zwischen Rechts-Rotation und Links-Rotation.\newline
+\textbf{Rechts-Rotation:}\newline
+\begin{center}
+	\includegraphics[scale=1]{Bilder/AVL_rechts_rot.PNG}
+\end{center}
+\textbf{Links-Rotation:}\newline
+\begin{center}
+	\includegraphics[scale=1]{Bilder/AVL_links_rot.PNG}
+\end{center}
 
 \subsection{Balancieren}
-
-\subsection{Einfügen}
+Wenn ein Baum keine AVL-Bedingungen erfüllt, da die Balance der Teilbäume eine Differenz $\geq $2 hat, muss er rebalanciert werden. Diese Rebalancierung geschieht durch Rechts- oder Links-Rotationen. Jeder Baum kann als AVL-Baum dargestellt werden!
 
 \subsection{Suchen}
+Gleich wie das \textit{\hyperref[sec:SuchenBinaer]{Suchen}} beim Binärbaum.
+
+\subsection{Ausgabe}
+Gleich wie die \textit{\hyperref[sec:AusgabeBinaer]{Ausgabe}} beim Binärbaum.
+
+\subsection{Einfügen}
+\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(\log n)$\\
+\end{tabularx}
+\begin{enumerate}
+	\item füge Knoten wie in gewöhnlichen Binärbaum ein
+	\item durchlaufe Baum vom neuen Knoten bis zur Wurzel, passe Balance Anders
+	\item wenn im Knoten \textit{k} der Höhenunterschied 2 (oder -2) ist: führe Links- (oder Rechts-) Rotation durch
+	\begin{enumerate}
+		\item wenn das Pivot \textit{p} ein \textcolor{blue}{anderes} Vorzeichen hat als die Wurzel: \textcolor{blue}{Doppelrotation}
+		\begin{enumerate}
+			\item \textcolor{blue}{Rechts-} Rotation mit \textit{p} als Wurzel
+			\item \textcolor{blue}{Links-} Rotation mit \textit{k} als Wurzel
+		\end{enumerate}
+		\item sonst (gleiches Vorzeichen): Einzelrotation
+		\begin{enumerate}
+			\item \textcolor{blue}{Links-} Rotation mit \textit{k} als Wurzel
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+Balanceanpassungen gibt es nur auf dem aktuellen Pfad(bottom-up) und es ist maximal eine Doppelrotation notwendig!
 
 \subsection{Löschen}
+\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(\log n)$\\
+\end{tabularx}
+\begin{enumerate}
+	\item lösche Knoten wie aus gewöhnlichem Binärbaum
+	\item durchlaufe Baum vom gelöschten Knoten zur Wurzel
+	\item wenn der Hohenunterschied 2 (oder -2) ist: führe Links- (oder Rechts-) Rotation durch
+	\begin{enumerate}
+		\item wenn das Pivot ein \textcolor{blue}{anderes} Vorzeichen hat als die Wurzel: \textcolor{blue}{Doppelrotation}
+		\item sonst (gleiches Vorzeichen oder 0): Einzelrotation
+	\end{enumerate}
+\end{enumerate}
+Hierbei sind möglicherweise \textcolor{blue}{mehrere} Rotationen notwendig!
 
 \section{Hashing und Hashtabellen}
+Hashtabellen haben die besondere Eigenschaft, dass alle Funktionen außer das Ausgaben eine Komplexität von $\mathcal{O}(1)$ haben. Hierbei werden die Datensätze in einer endlichen Tabelle gespeichert. Die Speicherung erfolgt nach einem speziellen Verfahren namens Hashing. Hierfür wird eine Hashfunktion geschrieben, welche folgende Eigenschaften erfüllen muss:
+\begin{enumerate}
+	\item Berücksichtigung aller Bits
+	\begin{enumerate}
+		\item Änderung von \textit{i} um 1 Bit $\rightsquigarrow$ Änderung von \textit{h(i)}
+		\item Vermeidung von gleichen Hash-Werten(\textcolor{blue}{Kollisionen})
+		\item Schlecht: Gleicher Hash-Wert für Schmidt, Schmid und Schmied
+	\end{enumerate}
+	\item kleine Änderungen von \textit{i} $\rightsquigarrow$ große Änderung von \textit{h(i)}
+	\begin{enumerate}
+		\item Gleichmäßige Verteilung ähnlicher Schlüssel
+		\item Schlecht: Alle Schmidts liegen dicht beieinander
+		\item Vermeidung von \textcolor{blue}{Clustering}
+	\end{enumerate}
+\end{enumerate}
+\textbf{\textcolor{blue}{Kollision}}\newline
+Eine Kollision tritt auf, wenn zwei verschiedene Schlüssel, die denselben Hash-Wert haben, in eine Hash-Tabelle eingefügt werden.\newline
+\newline
+\textbf{\textcolor{blue}{Clustering}}\newline
+Wenn in einer Hashtabelle mehrere Schlüssel in Zellen nebeneinander liegen und somit einen Häufungspunkt in der Tabelle bilden.\newline
+\newline
+Um die Kollisionen zu behandeln gibt es zwei Möglochkeiten:
 
-\section{Master-Theorem}
+\subsection{Linear Probing}
+Beim Linear Probing wird der aktuelle Schlüssel bei einer Kollision einfach in die nächste freie Zelle geschrieben (Also beim Hashwert + 1). Am Ende der Liste wird wieder zum Anfang gesprungen.\newline
+Hierbei gibt es den Nachteil dass sich sehr schnell Cluster bilden und somit die Hashtabelle ineffizient wird.
 
-\section{Master-Theorem nach Landau}
-\label{sec:MasterLandau}
+\subsection{Re-Hashing}
+Beim Re-Hashing gibt es eine zweite Hash-Funktion welche bei Kollisionen zum Einsatz kommt. Diese bestimmt die Sprungweite. Am Besten ist es, wenn die Sprungweite eine Primzahl ist und somit kein Teiler der Tabellengröße sein kann. Mit dieser Methode kann das Problem der Clusterbildung umgangen werden.
 
 \section{Graph-Algorithmen}
 \subsection{Minimale Spannbäume \& Algorithmus von Prim}
 
+
 \subsection{Kürzeste Wege/Dijkstra}
+
+
+\section{Master-Theorem}
+
+
+\section{Master-Theorem nach Landau}
+\label{sec:MasterLandau}
 
 
 \end{document}
