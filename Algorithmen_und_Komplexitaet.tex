@@ -692,6 +692,41 @@ Balanceanpassungen gibt es nur auf dem aktuellen Pfad(bottom-up) und es ist maxi
 Hierbei sind möglicherweise \textcolor{blue}{mehrere} Rotationen notwendig!
 
 \section{Hashing und Hashtabellen}
+Hashtabellen haben die besondere Eigenschaft, dass alle Funktionen außer das Ausgaben eine Komplexität von $\mathcal{O}(1)$ haben. Hierbei werden die Datensätze in einer endlichen Tabelle gespeichert. Die Speicherung erfolgt nach einem speziellen Verfahren namens Hashing. Hierfür wird eine Hashfunktion geschrieben, welche folgende Eigenschaften erfüllen muss:
+\begin{enumerate}
+	\item Berücksichtigung aller Bits
+	\begin{enumerate}
+		\item Änderung von \textit{i} um 1 Bit $\rightsquigarrow$ Änderung von \textit{h(i)}
+		\item Vermeidung von gleichen Hash-Werten(\textcolor{blue}{Kollisionen})
+		\item Schlecht: Gleicher Hash-Wert für Schmidt, Schmid und Schmied
+	\end{enumerate}
+	\item kleine Änderungen von \textit{i} $\rightsquigarrow$ große Änderung von \textit{h(i)}
+	\begin{enumerate}
+		\item Gleichmäßige Verteilung ähnlicher Schlüssel
+		\item Schlecht: Alle Schmidts liegen dicht beieinander
+		\item Vermeidung von \textcolor{blue}{Clustering}
+	\end{enumerate}
+\end{enumerate}
+\textbf{\textcolor{blue}{Kollision}}\newline
+Eine Kollision tritt auf, wenn zwei verschiedene Schlüssel, die denselben Hash-Wert haben, in eine Hash-Tabelle eingefügt werden.\newline
+\newline
+\textbf{\textcolor{blue}{Clustering}}\newline
+Wenn in einer Hashtabelle mehrere Schlüssel in Zellen nebeneinander liegen und somit einen Häufungspunkt in der Tabelle bilden.\newline
+\newline
+Um die Kollisionen zu behandeln gibt es zwei Möglochkeiten:
+
+\subsection{Linear Probing}
+Beim Linear Probing wird der aktuelle Schlüssel bei einer Kollision einfach in die nächste freie Zelle geschrieben (Also beim Hashwert + 1). Am Ende der Liste wird wieder zum Anfang gesprungen.\newline
+Hierbei gibt es den Nachteil dass sich sehr schnell Cluster bilden und somit die Hashtabelle ineffizient wird.
+
+\subsection{Re-Hashing}
+Beim Re-Hashing gibt es eine zweite Hash-Funktion welche bei Kollisionen zum Einsatz kommt. Diese bestimmt die Sprungweite. Am Besten ist es, wenn die Sprungweite eine Primzahl ist und somit kein Teiler der Tabellengröße sein kann. Mit dieser Methode kann das Problem der Clusterbildung umgangen werden.
+
+\section{Graph-Algorithmen}
+\subsection{Minimale Spannbäume \& Algorithmus von Prim}
+
+
+\subsection{Kürzeste Wege/Dijkstra}
 
 
 \section{Master-Theorem}
@@ -699,13 +734,6 @@ Hierbei sind möglicherweise \textcolor{blue}{mehrere} Rotationen notwendig!
 
 \section{Master-Theorem nach Landau}
 \label{sec:MasterLandau}
-
-
-\section{Graph-Algorithmen}
-\subsection{Minimale Spannbäume \& Algorithmus von Prim}
-
-
-\subsection{Kürzeste Wege/Dijkstra}
 
 
 \end{document}
