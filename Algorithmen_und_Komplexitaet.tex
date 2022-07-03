@@ -511,6 +511,7 @@ Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Eleme
 \end{minipage}
 
 \subsection{Suchen}
+\label{sec:SuchenBinaer}
 \begin{tabularx}{\textwidth}{l l}
 	Komplexität: &$\mathcal{O}(log(n))$\\
 \end{tabularx}
@@ -584,6 +585,7 @@ Beim Löschen in Binärbäumen muss man beachten, dass der zu löschende Knoten 
 \end{enumerate}
 
 \subsection{Ausgabe}
+\label{sec:AusgabeBinaer}
 \begin{tabularx}{\textwidth}{l l}
 	Komplexität: &$\mathcal{O}(n)$\\
 \end{tabularx}
@@ -629,28 +631,79 @@ Beim Löschen in Binärbäumen muss man beachten, dass der zu löschende Knoten 
 	\begin{enumerate}
 		\item Höhe/Tiefe: Anzahl der Knoten auf dem längsten Ast
 		\item Gewicht: Anzahl der Knoten
-		\item Balance: Tiefenerschied ist nicht Höher als 2
+		\item Balance: Tiefenunterschied ist nicht Höher als 2
 	\end{enumerate}
 
 \subsection{Rotieren}
+Beim Rotieren gibt es zwei unterschiedliche Arten zu rotieren. Hierbei wird unterschieden zwischen Rechts-Rotation und Links-Rotation.\newline
+\textbf{Rechts-Rotation:}\newline
+\begin{center}
+	\includegraphics[scale=1]{Bilder/AVL_rechts_rot.PNG}
+\end{center}
+\textbf{Links-Rotation:}\newline
+\begin{center}
+	\includegraphics[scale=1]{Bilder/AVL_links_rot.PNG}
+\end{center}
 
 \subsection{Balancieren}
-
-\subsection{Einfügen}
+Wenn ein Baum keine AVL-Bedingungen erfüllt, da die Balance der Teilbäume eine Differenz $\geq $2 hat, muss er rebalanciert werden. Diese Rebalancierung geschieht durch Rechts- oder Links-Rotationen. Jeder Baum kann als AVL-Baum dargestellt werden!
 
 \subsection{Suchen}
+Gleich wie das \textit{\hyperref[sec:SuchenBinaer]{Suchen}} beim Binärbaum.
+
+\subsection{Ausgabe}
+Gleich wie die \textit{\hyperref[sec:AusgabeBinaer]{Ausgabe}} beim Binärbaum.
+
+\subsection{Einfügen}
+\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(\log n)$\\
+\end{tabularx}
+\begin{enumerate}
+	\item füge Knoten wie in gewöhnlichen Binärbaum ein
+	\item durchlaufe Baum vom neuen Knoten bis zur Wurzel, passe Balance Anders
+	\item wenn im Knoten \textit{k} der Höhenunterschied 2 (oder -2) ist: führe Links- (oder Rechts-) Rotation durch
+	\begin{enumerate}
+		\item wenn das Pivot \textit{p} ein \textcolor{blue}{anderes} Vorzeichen hat als die Wurzel: \textcolor{blue}{Doppelrotation}
+		\begin{enumerate}
+			\item \textcolor{blue}{Rechts-} Rotation mit \textit{p} als Wurzel
+			\item \textcolor{blue}{Links-} Rotation mit \textit{k} als Wurzel
+		\end{enumerate}
+		\item sonst (gleiches Vorzeichen): Einzelrotation
+		\begin{enumerate}
+			\item \textcolor{blue}{Links-} Rotation mit \textit{k} als Wurzel
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+Balanceanpassungen gibt es nur auf dem aktuellen Pfad(bottom-up) und es ist maximal eine Doppelrotation notwendig!
 
 \subsection{Löschen}
+\begin{tabularx}{\textwidth}{l l}
+	Komplexität: &$\mathcal{O}(\log n)$\\
+\end{tabularx}
+\begin{enumerate}
+	\item lösche Knoten wie aus gewöhnlichem Binärbaum
+	\item durchlaufe Baum vom gelöschten Knoten zur Wurzel
+	\item wenn der Hohenunterschied 2 (oder -2) ist: führe Links- (oder Rechts-) Rotation durch
+	\begin{enumerate}
+		\item wenn das Pivot ein \textcolor{blue}{anderes} Vorzeichen hat als die Wurzel: \textcolor{blue}{Doppelrotation}
+		\item sonst (gleiches Vorzeichen oder 0): Einzelrotation
+	\end{enumerate}
+\end{enumerate}
+Hierbei sind möglicherweise \textcolor{blue}{mehrere} Rotationen notwendig!
 
 \section{Hashing und Hashtabellen}
 
+
 \section{Master-Theorem}
+
 
 \section{Master-Theorem nach Landau}
 \label{sec:MasterLandau}
 
+
 \section{Graph-Algorithmen}
 \subsection{Minimale Spannbäume \& Algorithmus von Prim}
+
 
 \subsection{Kürzeste Wege/Dijkstra}
 
