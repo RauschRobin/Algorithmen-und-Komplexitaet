@@ -119,6 +119,9 @@ Ein Algorithmus der...
 \subsection{Greedy Algorithmen}
 Greedy-Algorithmen zeichnen sich dadurch aus, dass sie zum aktuellen Zustand $t$ den besten Weg einschlagen und nicht voraus ($t+1$) planen. Anders gesagt: Ein Greedy-Algorithmus entscheidet sich immer für denjenigen Schritt, der ihn dem Ziel am nachsten bringt.
 
+\subsection{Indirektes Sortieren}
+Bei sehr großen Datensätzen ist das Sortieren sehr teuer. Um dieses Problem zu umgehen wurde das Indirekte Sortieren erfunden, bei dem nicht die Datensätze getauscht werden, sondern die Indexierung vertauscht wird.
+
 \subsection{Rekurrenzen}
 Rekursion? --> Kein Plan was ich hierzu reinschreiben soll? @flo
 
@@ -263,9 +266,77 @@ Rekursion? --> Kein Plan was ich hierzu reinschreiben soll? @flo
 \newline 
 Wen man den Insertionsort In-place verwenden will, sind In und Out gleich.
 
-\subsubsection{Indirektes Sortieren}
-
 \subsection{Bubblesort}
+\begin{tabularx}{\textwidth}{l l}
+	Speicher: &In-place\\
+	Stabilität: &Stabil\\
+	Komplexität: &$\mathcal{O}(n^2)$\\
+\end{tabularx}
+\vspace{.8cm}
+\newline
+\begin{minipage}[c]{0.7\textwidth}
+	\begin{enumerate}
+		\item durchlaufe eine Folge \textit{S} von Anfang bis Ende
+		\begin{enumerate}
+			\item wann immer $a_i > a_{i+1}$ gilt, vertausche $a_i$ mit $a_{i+1}$
+		\end{enumerate}
+		\item wiederhole Schritt 1 solange, bis keine Vertauschungen mehr vorkommen
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}[c]{0.3\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\filldraw[green](-2.5,-7.5) rectangle (2.5,-8.5);
+			\foreach \y in {0,...,4}
+			{
+				\draw[black,very thick] (-2.5, 0.5 - \y * 2) rectangle (2.5,-0.5 - \y * 2);
+				\draw[black,very thick] (-1.5, 0.5 - \y * 2) -- (-1.5,-0.5 - \y * 2);
+				\draw[black,very thick] (-0.5, 0.5 - \y * 2) -- (-0.5,-0.5 - \y * 2);
+				\draw[black,very thick] (0.5, 0.5 - \y * 2) -- (0.5,-0.5 - \y * 2);
+				\draw[black,very thick] (1.5, 0.5 - \y * 2) -- (1.5,-0.5 - \y * 2);
+			}
+			\node at (-2,0){5};
+			\node at (-1,0){8};
+			\node at (0,0){3};
+			\node at (1,0){9};
+			\node at (2,0){1};
+
+			\draw[red, very thick, <->](-1,0.5) to[out=45, in=135] (0,0.5);
+			\draw[red, very thick, <->](1,0.5) to[out=45, in=135] (2,0.5);
+
+			\node at (-2,-2){5};
+			\node at (-1,-2){3};
+			\node at (0,-2){8};
+			\node at (1,-2){1};
+			\node at (2,-2){9};
+			
+			\draw[red, very thick, <->](-2,-1.5) to[out=45, in=135] (-1,-1.5);
+			\draw[red, very thick, <->](0,-1.5) to[out=45, in=135] (1,-1.5);
+			
+			\node at (-2,-4){3};
+			\node at (-1,-4){5};
+			\node at (0,-4){1};
+			\node at (1,-4){8};
+			\node at (2,-4){9};
+			
+			\draw[red, very thick, <->](-1,-3.5) to[out=45, in=135] (0,-3.5);
+			
+			\node at (-2,-6){3};
+			\node at (-1,-6){1};
+			\node at (0,-6){5};
+			\node at (1,-6){8};
+			\node at (2,-6){9};
+			
+			\draw[red, very thick, <->](-2,-5.5) to[out=45, in=135] (-1,-5.5);
+			
+			\node at (-2,-8){1};
+			\node at (-1,-8){3};
+			\node at (0,-8){5};
+			\node at (1,-8){8};
+			\node at (2,-8){9};
+		\end{tikzpicture}
+	\end{center}
+\end{minipage}
 
 \section{Divide \& Conquer Sortierverfahren}
 \subsection{Quicksort}
@@ -723,6 +794,24 @@ Hierbei gibt es den Nachteil dass sich sehr schnell Cluster bilden und somit die
 Beim Re-Hashing gibt es eine zweite Hash-Funktion welche bei Kollisionen zum Einsatz kommt. Diese bestimmt die Sprungweite. Am Besten ist es, wenn die Sprungweite eine Primzahl ist und somit kein Teiler der Tabellengröße sein kann. Mit dieser Methode kann das Problem der Clusterbildung umgangen werden.
 
 \section{Graph-Algorithmen}
+Ein Graph ist entweder gerichtet oder ungerichtet. Gerichtete Graphen haben eine Richtung wobei ungerichtete Graphen beidseitig anwendbar sind(symmetrisch sind). Ebenso können Graphen gewichtet sein in dem sie beschriftet sind. Hierbei besteht eine Gewichtung wenn ein Graph mit einer Zahl versehen ist.
+
+\subsection{Adjazenzmatrix}
+Die Adjazenzmatrix kann als zweidimensionales Array betrachtet werden. Hierbei wird die Verbindung aller Punkte miteinander aufgelistet:\newline
+\newline
+\begin{minipage}[c]{0.7\textwidth}
+	\begin{center}
+		\includegraphics[scale=.8]{Bilder/Adjazenzmatrix.PNG}
+	\end{center}
+\end{minipage}
+\begin{minipage}[c]{0.3\textwidth}
+	\begin{center}
+		\includegraphics[scale=.95]{Bilder/Adjazenzliste.PNG}
+	\end{center}
+\end{minipage}\vspace{.5cm}
+\textit{V} beschreibt die Punkte die miteinander verbunden sind und \textit{E} ist eine Menge aller bestehenden Graphen zwischen diesen Punkten. Rechts befindet sich die zugehörige Adjazenzliste \textit{L}.\newline
+Die Adjazenzliste ist gegenüber der Matrix in nicht so dichten Graphen deutlich platzsparender und wird vorallem bei mageren Graphen eingesetzt. Jedoch ist die Komplexität bei der Adjazenzliste höher als bei der Matrix($\mathcal{O}(N)$ statt $\mathcal{O}(1)$)
+
 \subsection{Minimale Spannbäume \& Algorithmus von Prim}
 
 
