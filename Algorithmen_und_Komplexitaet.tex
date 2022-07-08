@@ -373,8 +373,9 @@ Wen man den Insertionsort In-place verwenden will, sind In und Out gleich.
 \vspace*{0.7cm}
 \newline
 \textbf{Warum ist Quicksort so effizient?}\newline
-Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Elemente zwischen denen einmal ein Pivot lag nie wieder miteinander verglichen. 
-
+Da zuerst grob sortiert und dann immer feiner sortiert wird. Ebenso werden Elemente zwischen denen einmal ein Pivot lag nie wieder miteinander verglichen. \newline
+\newline
+Neben dem normalen Quicksort gibt es auch den LL-Quicksort-Algorithmus, welcher das Pivot-Element immer mit dem letzten Element der Liste vertauscht und danach alle Elemente kleiner als das Pivot an den Anfang der Liste setzt. Nachdem die ganze Liste durchgelaufen ist, wird das Pivotelement zwischen die kleineren und nicht kleineren Elemente gesetzt. Danach wiederholt sich das Ganze für beide Teillisten.
 
 \subsection{Mergesort(Top-Down)}
 \begin{tabularx}{\textwidth}{l l}
