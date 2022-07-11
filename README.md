@@ -1,7 +1,4 @@
 # Algorithmen-und-Komplexitaet
 Zusammenfassung Algorithmen und Komplexität Semester 2 
 
-Regeln und Design: @Flo<br>
-  Alle Sortierverfahren werden zuerst erklärt und danach als Code-Beispiel erläutert<br>
-  Tikz-Elemente sollen in \begin{center}\begin{figure}\begin{tikzpicture} gepackt werden<br>
-  ...
+Fehler und Anregungen bitte sofort den Autoren melden!
