@@ -475,85 +475,85 @@ Neben dem normalen Quicksort gibt es auch den LL-Quicksort-Algorithmus, welcher 
 
 \section{Heap Sortierverfahren}
 \subsection{Heapsort}
-	\begin{tabularx}{\textwidth}{l l}
-		Speicher: &In-place\\
-		Stabilität: &Instabil\\
-		Komplexität: &$\mathcal{O}(n \cdot log(n))$\\
-	\end{tabularx}
-	\vspace{.8cm}
-	\newline
-	\begin{minipage}[c]{0.5\textwidth}
+\begin{tabularx}{\textwidth}{l l}
+	Speicher: &In-place\\
+	Stabilität: &Instabil\\
+	Komplexität: &$\mathcal{O}(n \cdot log(n))$\\
+\end{tabularx}
+\vspace{.8cm}
+\newline
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{enumerate}
+		\item Liste in Baum übertragen
+		\item Solange Baum nicht leer:
 		\begin{enumerate}
-			\item Liste in Baum übertragen
-			\item Solange Baum nicht leer:
-			\begin{enumerate}
-				\item Heapify(Größte nach oben)
-				\item Oberste Element in die Liste einfügen
-			\end{enumerate}
+			\item Heapify(Größte nach oben)
+			\item Oberste Element in die Liste einfügen
 		\end{enumerate}
-	\end{minipage}
-	\begin{minipage}[c]{0.5\textwidth}
-		\begin{center}
-			\begin{tikzpicture}[scale=0.6]
-				\draw[black,very thick](-2.5,-0.5) rectangle (2.5,0.5);
-				\draw[black, very thick](-1.5,-0.5) -- (-1.5,0.5);
-				\draw[black, very thick](-0.5,-0.5) -- (-0.5,0.5);
-				\draw[black, very thick](0.5,-0.5) -- (0.5,0.5);
-				\draw[black, very thick](1.5,-0.5) -- (1.5,0.5);
-				\node at (-2,0){5};
-				\node at (-1,0){8};
-				\node at (0,0){3};
-				\node at (1,0){9};
-				\node at (2,0){1};
+	\end{enumerate}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{center}
+		\begin{tikzpicture}[scale=0.6]
+			\draw[black,very thick](-2.5,-0.5) rectangle (2.5,0.5);
+			\draw[black, very thick](-1.5,-0.5) -- (-1.5,0.5);
+			\draw[black, very thick](-0.5,-0.5) -- (-0.5,0.5);
+			\draw[black, very thick](0.5,-0.5) -- (0.5,0.5);
+			\draw[black, very thick](1.5,-0.5) -- (1.5,0.5);
+			\node at (-2,0){5};
+			\node at (-1,0){8};
+			\node at (0,0){3};
+			\node at (1,0){9};
+			\node at (2,0){1};
 
-				\node[draw, circle] at (0,-2){9};
-				\node[draw, circle] at (1.5,-3.5){8};
-				\node[draw, circle] at (-1.5,-3.5){3};
-				\node[draw, circle] at (3,-5){5};
-				\node[draw, circle] at (-3,-5){1};
+			\node[draw, circle] at (0,-2){9};
+			\node[draw, circle] at (1.5,-3.5){8};
+			\node[draw, circle] at (-1.5,-3.5){3};
+			\node[draw, circle] at (3,-5){5};
+			\node[draw, circle] at (-3,-5){1};
 
-				\draw[green, very thick, ->](0.75,-2) to[out=45, in=100] (4.5, -3);
+			\draw[green, very thick, ->](0.75,-2) to[out=45, in=100] (4.5, -3);
 
-				\draw[green,very thick](4,-3) rectangle (9,-4);
-				\draw[green, very thick](5,-3) -- (5,-4);
-				\draw[green, very thick](6,-3) -- (6,-4);
-				\draw[green, very thick](7,-3) -- (7,-4);
-				\draw[green, very thick](8,-3) -- (8,-4);
-				\node at (4.5,-3.5){9};
+			\draw[green,very thick](4,-3) rectangle (9,-4);
+			\draw[green, very thick](5,-3) -- (5,-4);
+			\draw[green, very thick](6,-3) -- (6,-4);
+			\draw[green, very thick](7,-3) -- (7,-4);
+			\draw[green, very thick](8,-3) -- (8,-4);
+			\node at (4.5,-3.5){9};
 
-				\node[draw, circle] at (0,-6){5};
-				\node[draw, circle] at (1.5,-7.5){8};
-				\node[draw, circle] at (-1.5,-7.5){3};
-				\node[draw, circle] at (-3,-9){1};
-				
-				\draw[red, very thick, <->](0.75,-6) to[out=0, in=90] (1.5, -6.75);
-				\node[text=red] at (6,-7.5){Heapify};
+			\node[draw, circle] at (0,-6){5};
+			\node[draw, circle] at (1.5,-7.5){8};
+			\node[draw, circle] at (-1.5,-7.5){3};
+			\node[draw, circle] at (-3,-9){1};
+			
+			\draw[red, very thick, <->](0.75,-6) to[out=0, in=90] (1.5, -6.75);
+			\node[text=red] at (6,-7.5){Heapify};
 
-				\node[draw, circle] at (0,-10){8};
-				\node[draw, circle] at (1.5,-11.5){5};
-				\node[draw, circle] at (-1.5,-11.5){3};
-				\node[draw, circle] at (-3,-13){1};
+			\node[draw, circle] at (0,-10){8};
+			\node[draw, circle] at (1.5,-11.5){5};
+			\node[draw, circle] at (-1.5,-11.5){3};
+			\node[draw, circle] at (-3,-13){1};
 
-				\draw[green, very thick, ->](0.75,-10) to[out=45, in=100] (5.5, -11);
+			\draw[green, very thick, ->](0.75,-10) to[out=45, in=100] (5.5, -11);
 
-				\draw[green,very thick](4,-11) rectangle (9,-12);
-				\draw[green, very thick](5,-11) -- (5,-12);
-				\draw[green, very thick](6,-11) -- (6,-12);
-				\draw[green, very thick](7,-11) -- (7,-12);
-				\draw[green, very thick](8,-11) -- (8,-12);
-				\node at (4.5,-11.5){9};
-				\node at (5.5,-11.5){8};
+			\draw[green,very thick](4,-11) rectangle (9,-12);
+			\draw[green, very thick](5,-11) -- (5,-12);
+			\draw[green, very thick](6,-11) -- (6,-12);
+			\draw[green, very thick](7,-11) -- (7,-12);
+			\draw[green, very thick](8,-11) -- (8,-12);
+			\node at (4.5,-11.5){9};
+			\node at (5.5,-11.5){8};
 
-				\node[draw, circle] at (0,-14){5};
-				\node[draw, circle] at (-1.5,-15.5){3};
-				\node[draw, circle] at (-3,-17){1};
+			\node[draw, circle] at (0,-14){5};
+			\node[draw, circle] at (-1.5,-15.5){3};
+			\node[draw, circle] at (-3,-17){1};
 
-				\node[text=red] at (6,-15.5){Heapify};
+			\node[text=red] at (6,-15.5){Heapify};
 
-				\node at (1.5, -19){...};
-			\end{tikzpicture}
-		\end{center}
-	\end{minipage}
+			\node at (1.5, -19){...};
+		\end{tikzpicture}
+	\end{center}
+\end{minipage}
 
 \section{Binäre Suchbäume}
 \begin{minipage}[c]{0.65\textwidth}
