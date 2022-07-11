@@ -74,11 +74,11 @@ Einige Beispiele sind zum Beispiel:\newline
 \subsubsection{Landau-Symbole}
 \begin{tabularx}{\textwidth}{|l|X|c|}
 	\hline
-	$g  \in  \Omega (f)$ & $g$ wächst mindestens so schnell wie $f$ & $\lim_{x \to \infty} \frac{f(x)}{g(x)} = c \in \mathbb{R}$ \\
+	$g  \in  \Omega (f)$ & $g$ wächst \textcolor{blue}{mindestens} so schnell wie $f$ & $\lim_{x \to \infty} \frac{f(x)}{g(x)} = c \in \mathbb{R}$ \\
 	\hline
-	$g  \in  \Theta (f)$ & $g$ wächst genau so schnell wie $f$ & $\lim_{x \to \infty} \frac{g(x)}{f(x)} = c \in \mathbb{R}^{>0}$ \\
+	$g  \in  \Theta (f)$ & $g$ wächst \textcolor{blue}{genau} so schnell wie $f$, bis auf einen \textcolor{blue}{konstanten Faktor} & $\lim_{x \to \infty} \frac{g(x)}{f(x)} = c \in \mathbb{R}^{>0}$ \\
 	\hline
-	$g \sim f$ & $g$ wächst genau so schnell wie $f$ & $\lim_{x \to \infty} \frac{g(x)}{f(x)} = 1$ \\
+	$g \sim f$ & $g$ wächst \textcolor{blue}{genau} so schnell wie $f$ & $\lim_{x \to \infty} \frac{g(x)}{f(x)} = 1$ \\
 	\hline
 \end{tabularx}
 \begin{center}
@@ -134,7 +134,7 @@ Rekurrenzrelationen? --> Kein Plan? @flo --> HELP
 \subsection{Selectionsort}
 \begin{tabularx}{\textwidth}{l l}
 	Speicher: &In-place\\
-	Stabilität: &Stabil\\
+	Stabilität: &Instabil\\
 	Komplexität: &$\mathcal{O}(n^2)$\\
 \end{tabularx}
 \vspace{.8cm}
